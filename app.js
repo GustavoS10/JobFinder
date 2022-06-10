@@ -11,7 +11,7 @@ const Op         = Sequelize.Op;
 const PORT = 80;
 
 
-app.listen(PORT, function(){
+app.listen(process.env.PORT || PORT, function(){
     console.log(`o express ta rodando na porta ${PORT}`);
 });
 //body parser
