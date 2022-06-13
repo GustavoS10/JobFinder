@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "build": "webpack"
+    "build": "webpack",
+    "heroku-postbuild": "ng build --prod"
   },
   "keywords": [
     "dev",
