@@ -4,7 +4,9 @@
   "description": "Programa feito para programadores encontrarem empregos",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "build": "webpack"
   },
   "keywords": [
     "dev",
