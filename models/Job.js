@@ -1,5 +1,6 @@
 const {Sequelize, Op, model, DataTypes} = require('sequelize');
 const db = require('../db/connection');
+const validator = require('./Validator.js');
 
 const Job = db.define('job', {
   title: {
