@@ -13,7 +13,7 @@ const Job = db.define('job', {
     validate:{
       customValidator(value){
         if(value < 50){
-          throw new Error("Description require more character!");
+          throw new Error("The RH departament did not write any description, please call for the RH departament");
         }
       },
       allowNull: false,
