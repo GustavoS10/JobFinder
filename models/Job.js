@@ -49,4 +49,9 @@ const Job = db.define('job', {
   }
 });
 
+(async () => {
+  await sequelize.sync({ force: true });
+  // Code here
+})();
+
 module.exports = Job
