@@ -1,24 +1,43 @@
-const Sequelize = require('sequelize');
+const {Sequelize, Op, model, DataTypes} = require('sequelize');
 const db = require('../db/connection');
 
 const Job = db.define('job', {
   title: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING(100),
   },
   description: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING(),
+    validate:{
+      customValidator(value){
+        if(value < 50){
+          throw new Error("Description require more character!");
+        }
+      }
+    }
   },
   salary: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING(6),
+    validate:{
+      isInt: true,
+    }
   },
   company: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
+    validate:{
+      not: ["^[!-@-#-$-%-¨-&-*]"],
+    }
   },
   email: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
+    validate:{
+      isEmail: true,
+    }
   },
   new_job: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
+    validate:{
+      isInt: true,
+    }
   }
 });
 
