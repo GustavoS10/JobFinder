@@ -2,7 +2,7 @@ const {Sequelize, Op, model, DataTypes} = require('sequelize');
 const db = require('../db/connection');
 const sequelize = new Sequelize("sqlite::memory:");
 
-const Job = db.define('job', {
+const Job = sequelize.define("job", {
   title: {
     type: DataTypes.STRING(100),
     validate:{
