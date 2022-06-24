@@ -2,15 +2,15 @@ const {Sequelize, Op, model, DataTypes} = require('sequelize');
 const db = require('../db/connection');
 const sequelize = new Sequelize("sqlite::memory:");
 
-const Job = sequelize.define("job", {
+const Job = db.define("job", {
   title: {
-    type: DataTypes.STRING(100),
+    type: Sequelize.STRING(100),
     validate:{
       allowNull: false,
     }
   },
   description: {
-    type: DataTypes.STRING(),
+    type: Sequelize.STRING(),
     validate:{
       customValidator(value){
         if(value < 50){
@@ -21,28 +21,28 @@ const Job = sequelize.define("job", {
     }
   },
   salary: {
-    type: DataTypes.STRING(6),
+    type: Sequelize.STRING(6),
     validate:{
       isInt: true,
       allowNull: false,
     }
   },
   company: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     validate:{
       not: ["^[!-@-#-$-%-¨-&-*]"],
       allowNull: false,
     }
   },
   email: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     validate:{
       isEmail: true,
       allowNull: false,
     }
   },
   new_job: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     validate:{
       isInt: true,
       allowNull: false,
