@@ -30,21 +30,22 @@ const Job = db.define("job", {
 (async () => {
   await sequelize.sync({ force: true });
   // Codifique aqui
-  title:{
-    validate:{
-      allowNull: false
-    }
-  }
-  description:{
-    validate:{
-      customValidator(value){
-        if(value < 50){
-          throw new Error("The RH departament did not write any description, please call for the RH departament");
-        }
-      }
-      allowNull: false
-    }
-  }
+  // customValidator();
+  // title:{
+  //   validate:{
+  //     allowNull: false
+  //   }
+  // }
+  // description:{
+  //   validate:{
+  //     customValidator(value){
+  //       if(value < 50){
+  //         throw new Error("The RH departament did not write any description, please call for the RH departament");
+  //       }
+  //     }
+  //     allowNull: false
+  //   }
+  // }
   salary:{
     validate:{
       isInt: true
