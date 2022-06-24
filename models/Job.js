@@ -1,6 +1,5 @@
 const {Sequelize, Op, model, DataTypes} = require('sequelize');
 const db = require('../db/connection');
-const sequelize = new Sequelize("sqlite::memory:");
 
 const Job = db.define("job", {
   title: {
