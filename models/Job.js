@@ -1,71 +1,24 @@
-const {Sequelize, Op, model, DataTypes} = require('sequelize');
+const Sequelize = require('sequelize');
 const db = require('../db/connection');
 
-const Job = db.define("job", {
+const Job = db.define('job', {
   title: {
-    type: DataTypes.STRING(100),
-    allowNull: false
+    type: Sequelize.STRING(100)
   },
   description: {
-    type: DataTypes.STRING(),
-    allowNull: false
+    type: Sequelize.STRING()
   },
   salary: {
-    type: DataTypes.STRING(6),
-    allowNull: false
+    type: Sequelize.STRING(6)
   },
   company: {
-    type: DataTypes.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   email: {
-    type: DataTypes.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   new_job: {
-    type: DataTypes.INTEGER
+    type: Sequelize.INTEGER
   }
 });
-
-(async () => {
-  await sequelize.sync({ force: true });
-  // Codifique aqui
-  // customValidator();
-  // title:{
-  //   validate:{
-  //     allowNull: false
-  //   }
-  // }
-  // description:{
-  //   validate:{
-  //     customValidator(value){
-  //       if(value < 50){
-  //         throw new Error("The RH departament did not write any description, please call for the RH departament");
-  //       }
-  //     }
-  //     allowNull: false
-  //   }
-  // }
-  salary:{
-    validate:{
-      isInt: true
-    }
-  }
-  company:{
-    validate:{
-      not: ["^[!-@-#-$-%-¨-&-*]"]
-    }
-  }
-  email:{
-    validate:{
-      isEmail: true
-    }
-  }
-  new_job:{
-    validate:{
-      isInt: trues
-    }
-  }
-})();
-
 module.exports = Job
